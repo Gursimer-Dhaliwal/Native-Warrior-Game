@@ -1,0 +1,39 @@
+Use of AI Declaration:
+
+I used ChatGPT as a tool during the development of this Java project.
+
+AI was used to:
+
+Help debug Java errors and explain compiler messages (like how and why some errors have occurred. For example, I had encountered a syntax error and I wanted to know exactly why it was occurring), clarify concepts such as inheritance and subclasses (this I used to understand how I could use City Engine’s features such as extending DynamicBody in order to make subclasses), give me guidance on implementing keyboard controls (this was used especially to understand how to use movement in the game as I used key listeners), and collision handling in CityEngine (used for many things such as my double jump feature and the collision with the in-game bomb), help with the menu system with ideas such as the settings (where options such as sound and music handling are included), and AI was used to learn more deeply how I could save a leaderboard of attempts of the game.
+The AI was not used to generate the entire project. Any code given to me by ChatGPT was used to learn how I could develop the game code and the class structure. I tested all functionality myself to ensure it runs correctly and meets the project specification (Milestone 1 and Milestone 2).
+I did use AI to give me inspiration for characters and background options, but they were used to adapt current sprites and backgrounds for my game.
+
+Some of the prompts were:
+
+"2D jungle tribal warrior sprite sheet, idle pose facing right, holding spear, 198x268 per frame, transparent background, clean edges, semi-realistic cartoon style, game-ready PNG"
+
+"2D jungle military soldier enemy sprite sheet, walking animation, holding rifle, facing right, 198x268 per frame, transparent background, consistent proportions, clean outlines, game-ready PNG"
+
+"2D cartoon jungle warfare bomb sprite, round black bomb with fuse, slight shading for depth, transparent background, clean edges, game-ready PNG"
+
+"2D jungle-themed floating wooden platform sprite, planks with vines and moss detail, no chains, flat top surface for collision, transparent background, game-ready PNG"
+
+"Simple red heart icon for game HUD, bright red with subtle shine, cartoon style, transparent background, square format, clean smooth edges"
+
+"2D side-scrolling jungle background with layered depth, foreground foliage and distant mountains, vibrant but balanced lighting, high resolution, suitable for Java physics game"
+
+"Very small fully transparent PNG image, no visible pixels, placeholder game asset"
+
+"2D bullet projectile sprite, glowing yellow/orange, small and visible, motion blur effect, transparent background, game ready"
+
+"2D explosion animation frame, bright yellow center, orange outer flames, stylised, clean readable shape, transparent background"
+
+"2D jungle background, side-scrolling platformer, layered depth with foreground leaves and distant mountains, soft lighting, high resolution"
+
+"Night jungle background with moonlight, deep green tones, fog and atmosphere, cinematic lighting, suitable for a platformer game"
+
+"2D ammo box sprite, small green military crate, simple design, easy to recognise in gameplay, transparent background"
+
+"2D health pickup icon, glowing red heart, soft shine, cartoon style, transparent background"
+
+I understand the code included in this submission and can explain how the main features (world setup, controls, collisions, and UI elements) work during a viva.
