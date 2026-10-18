@@ -7,6 +7,33 @@ Native Warrior challenges players to navigate platform-based levels, fight armed
 > [!IMPORTANT]
 > **CityEngine is required to run this project.** The game depends on the external Java `city.cs.engine` library (configured as `CityEngine` in the IntelliJ module). **The library is not included in this repository.** Reviewers can browse the source code without it, but must obtain and configure a compatible CityEngine distribution and its dependencies to compile and play. This is **not a standalone executable**.
 
+## Gameplay Showcase
+
+### Level 1 — Jungle Warfare
+![Level 1 gameplay](screenshots/level-1.png)
+
+The opening level introduces platform navigation, enemy encounters, ammunition management, health pickups and explosive hazards.
+
+### Level 2 — Sunset Jungle
+![Level 2 gameplay](screenshots/level-2.png)
+
+The second level features a distinct sunset environment, with further platform challenges, enemies and obstacles.
+
+### Level 3 — Night Operations
+![Level 3 gameplay](screenshots/level-3.png)
+
+The final level shifts to a moonlit jungle setting, challenging the player with additional enemies and hazards.
+
+### Main Menu
+![Native Warrior main menu](screenshots/main-menu.png)
+
+The custom main menu provides access to Play, Instructions, Leaderboard, Settings and Exit.
+
+### Persistent Leaderboard
+![Native Warrior leaderboard](screenshots/leaderboard.png)
+
+Completed runs can be saved and ranked by score and completion time, with results stored locally between sessions.
+
 ## Features
 
 - **Three levels** with distinct backgrounds, platforms, enemies, hazards and flag-based progression.
@@ -27,75 +54,86 @@ Native Warrior challenges players to navigate platform-based levels, fight armed
 | Java Swing/AWT | Window, menus, input and interface elements |
 | IntelliJ IDEA | Development and project configuration |
 
-## How to run
+## How to Run
 
 ### Prerequisites
 
 - A compatible **Java Development Kit (JDK)** and **IntelliJ IDEA**.
 - The **CityEngine Java library**, including any dependencies distributed with it. Obtain these from your course resources or another authorised source. The project's `JavaGame.iml` refers to an application-level IntelliJ library named `CityEngine`, but does not bundle its JAR files.
 
-### Setup
+### Installation
 
-1. Clone this repository:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/Gursimer-Dhaliwal/Native-Warrior-Game.git
    ```
 
-2. Open the cloned folder as a project in IntelliJ IDEA.
-3. Set up an appropriate JDK under **File → Project Structure → Project**.
-4. Go to **File → Project Structure → Libraries → + → Java**, select the appropriate CityEngine JAR file(s), and attach the library to the game's module. If you have a preconfigured library named `CityEngine`, you may use it instead.
-5. Make sure `org.jbox2d` classes and other dependencies supplied with CityEngine resolve correctly; missing imports mean that the required libraries are not fully configured.
-6. Ensure `src` is marked as a source root. Run **`game.Game`** (the class with `public static void main(String[] args)`).
-7. Run the game with the **repository root as its working directory**, so relative paths such as `data/...` and `leaderboard.txt` resolve as expected.
+2. Open the cloned folder in IntelliJ IDEA.
+3. Configure a compatible JDK under **File → Project Structure → Project**.
+4. Go to **File → Project Structure → Libraries → + → Java** and select the appropriate CityEngine JAR file(s). Attach the library to the project's module.
+5. Ensure the `org.jbox2d` classes and other required dependencies are available.
+6. Confirm that `src` is marked as a source root.
+7. Run the **`game.Game`** class, which contains the application's `main()` method.
+8. Ensure the working directory is the repository root so relative asset paths are resolved.
 
-**Troubleshooting:** An error such as `package city.cs.engine does not exist` means CityEngine is missing from the module's classpath. `package org.jbox2d.common does not exist` indicates a missing physics dependency. Missing images or audio may indicate an incorrect working directory or filename case mismatch on case-sensitive systems.
+**Troubleshooting:** If IntelliJ displays `package city.cs.engine does not exist`, the CityEngine library has not been configured correctly. If `package org.jbox2d.common does not exist` appears, a required physics dependency is missing.
 
 ## Controls
 
 | Key | Action |
 | --- | --- |
-| **A / D** | Move left / right |
-| **W** | Jump (supports double jump) |
-| **Space** | Shoot during gameplay; advance at level transitions |
-| **R** | Reload |
-| **Esc** | Return to menu (or handle the current game screen) |
+| A / D | Move left / right |
+| W | Jump / Double jump |
+| Space | Shoot during gameplay; advance at level transitions |
+| R | Reload |
+| Esc | Return to the menu or handle the current screen |
 
-Complete each level by defeating the enemies and reaching the flag. Ammo boxes replenish ammunition; hearts restore lives. After completing the campaign, the game offers the option to save a score to the leaderboard.
+Complete each level by defeating enemies and reaching the flag. Collect ammunition and hearts to maintain supplies and health.
 
-## Project structure
+## Project Structure
 
 ```text
 Native-Warrior-Game/
-├── src/game/             # Gameplay, levels, character logic, UI and leaderboard classes
-│   ├── Game.java         # Application entry point and game state
-│   ├── MainMenu.java     # Menus, settings and instructions
-│   ├── Level1.java       # Level one
-│   ├── Level2.java       # Level two
-│   ├── Level3.java       # Level three
-│   ├── WASDMovement.java # Player input, movement and ammunition controls
+├── src/game/
+│   ├── Game.java
+│   ├── MainMenu.java
+│   ├── Level1.java
+│   ├── Level2.java
+│   ├── Level3.java
+│   ├── LevelBuilder.java
+│   ├── WASDMovement.java
+│   ├── LeaderboardManager.java
 │   └── ...
-├── data/                 # Images, sprites, sound effects and music
-├── JavaGame.iml          # IntelliJ module configuration (CityEngine reference)
-├── leaderboard.txt       # Saved leaderboard results
-├── Use of AI.txt         # AI-use declaration
+├── data/
+├── screenshots/
+│   ├── level-1.png
+│   ├── level-2.png
+│   ├── level-3.png
+│   ├── main-menu.png
+│   └── leaderboard.png
+├── JavaGame.iml
+├── leaderboard.txt
+├── Use of AI.txt
 └── README.md
 ```
 
-## Code highlights for reviewers
+## Code Highlights for Reviewers
 
-- `Game.java` coordinates menus, level transitions, player lives, scoring and overall game state.
-- `LevelBuilder.java` creates platforms, moving platforms, enemy placements, pickups, bombs and finish flags.
-- `SoldierPatrol.java` and `SoldierShoot.java` contain enemy movement and combat behaviour.
-- `WASDMovement.java` handles keyboard input, double jumping, shooting and reloading.
-- `LeaderboardManager.java` reads and writes results and ranks players by score, then completion time.
+- **Game.java:** Coordinates game states, level transitions, scoring and player lives.
+- **LevelBuilder.java:** Constructs platforms, pickups, bombs, enemy placements and level objectives.
+- **SoldierPatrol.java / SoldierShoot.java:** Implements enemy patrol and combat behaviour.
+- **WASDMovement.java:** Handles keyboard controls, jumping, shooting and reloading.
+- **LeaderboardManager.java:** Reads, writes and ranks player scores and completion times.
 
-## Development transparency
+## Development Transparency
 
-A separate [`Use of AI.txt`](Use%20of%20AI.txt) documents how ChatGPT was used as a learning and debugging aid during development, including explanations of Java concepts, implementation guidance and creative inspiration. The source code and that declaration are available for review.
+The repository contains a separate [Use of AI.txt](Use%20of%20AI.txt) declaration describing the use of ChatGPT as a learning and debugging aid during development. This includes explanations of Java concepts, implementation guidance and creative inspiration.
 
 ## Author
 
 **Gursimer Dhaliwal**  
-Computer Science student, City St George's, University of London  
-[GitHub profile](https://github.com/Gursimer-Dhaliwal)
+Computer Science Student  
+City St George's, University of London
+
+[GitHub Profile](https://github.com/Gursimer-Dhaliwal)
